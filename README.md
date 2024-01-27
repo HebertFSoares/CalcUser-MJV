@@ -12,7 +12,7 @@ Antes de começar, certifique-se de atender aos seguintes requisitos:
 
 Para instalar o CalcUser, siga estas etapas:
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/calcuser.git`
+1. Clone este repositório: `git clone [https://github.com/seu-usuario/calcuser.git](https://github.com/HebertFSoares/CalcUser-MJV.git)`
 2. Abra o projeto na sua IDE Java favorita.
 3. Execute a aplicação.
 
