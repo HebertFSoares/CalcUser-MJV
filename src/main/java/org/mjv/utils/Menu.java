@@ -13,10 +13,10 @@ public class Menu {
     }
 
     public void screen(){
-        System.out.println("Bem vindo ao CalcUser! \n Escolha uma opção \n 1 - Me cadastrar \n 2 - Login \n 3 - Sair");
-        int response = sc.nextInt();
+        System.out.println("Bem vindo ao CalcUser! \n Escolha uma opção \n 1 - Me cadastrar \n 2 - Login \n 3 - Alterar dados  \n 4 - Sair");
+        int choice = sc.nextInt();
 
-        switch (response){
+        switch (choice){
             case 1 : signupUser();
             break;
             case 2 :
@@ -24,7 +24,7 @@ public class Menu {
                 if (user == null){
                     System.out.println("Usuario não encontrado, tente novamente");
                 }else {
-                    System.out.println("CalcUser...");
+                    System.out.println("Iniciando a CalcUser...");
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
@@ -33,13 +33,20 @@ public class Menu {
                     calcUser(user);
                     break;
                 }
-            case 3 :
+            case 3:
+                User loggedInUser = loginUser();
+                if (loggedInUser != null) {
+                    updateUser(loggedInUser);
+                }
+                break;
+            case 4 :
                 System.out.println("Saindo da aplicação...");
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                break;
             default:
                 System.out.println("Opção invalida");
                 toScreen();
@@ -47,7 +54,7 @@ public class Menu {
     }
 
     private void signupUser(){
-        System.out.println("Digite seu username desejado: ");
+        System.out.println("Digite seu nome: ");
         String name = sc.next();
         System.out.println("Digite a sua senha: ");
         String password = sc.next();
@@ -74,6 +81,52 @@ public class Menu {
             return null;
         }
     }
+
+    private void updateUser(User user) {
+        boolean voltarMenu = false;
+
+        while (!voltarMenu) {
+            System.out.println("Opções de alteração:" +
+                    "\n1 - Alterar senha" +
+                    "\n2 - Alterar idade" +
+                    "\n3 - Alterar profissão" +
+                    "\n0 - Voltar");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Digite a nova senha: ");
+                    String newPassword = sc.next();
+                    userList.updateUser(user, newPassword, user.getAge(), user.getWork());
+                    break;
+                case 2:
+                    System.out.println("Digite a nova idade: ");
+                    int newAge = sc.nextInt();
+                    userList.updateUser(user, user.getPassword(), newAge, user.getWork());
+                    break;
+                case 3:
+                    System.out.println("Digite a nova profissão: ");
+                    String newWork = sc.next();
+                    userList.updateUser(user, user.getPassword(), user.getAge(), newWork);
+                    break;
+                case 0:
+                    System.out.println("Voltando para o menu...");
+                    voltarMenu = true;
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    screen();
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        }
+    }
+
+
 
     private void calcUser(User user){
         System.out.printf("\nBem vindo ao CalcUser! selecione a opção desejada" +
@@ -102,6 +155,12 @@ public class Menu {
                 calcUser(user);
                 break;
             case 0:
+                System.out.println("Saindo do CalcUser...");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 toScreen();
                 break;
             default:

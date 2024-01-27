@@ -4,10 +4,6 @@ public class User {
     private String name;
     private int age;
     private String work;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     private String password;
 
     public User(String name, int age, String work, String password) {
