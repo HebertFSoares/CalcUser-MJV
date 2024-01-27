@@ -24,7 +24,7 @@ Para instalar o CalcUser, siga estas etapas:
 - Atualização de informações do usuário
 
 ## 📝 Nota
-#### Este projeto é um exercício desenvolvido para a `MJV` como parte do processo de aprendizagem e prática profissional.
+Este projeto é um exercício desenvolvido para a `MJV` como parte do processo de aprendizagem e prática profissional.
   
 ## 📫 Contribuindo para CalcUser
 
