@@ -13,7 +13,7 @@ public class Menu {
     }
 
     public void screen(){
-        System.out.println("Bem vindo ao CalcUser! \n Escolha uma opção \n 1 - Me cadastrar \n 2 - Login \n 3 - Alterar dados  \n 4 - Sair");
+        System.out.println("Bem vindo ao CalcUser! \n Escolha uma opção \n 1 - Me cadastrar \n 2 - Login \n 3 - Alterar dados  \n 4 - Historico de calculo \n 5 - Sair");
         int choice = sc.nextInt();
 
         switch (choice){
@@ -39,7 +39,11 @@ public class Menu {
                     updateUser(loggedInUser);
                 }
                 break;
-            case 4 :
+            case 4:
+                calculadora.showHistory();
+                toScreen();
+                break;
+            case 5 :
                 System.out.println("Saindo da aplicação...");
                 try {
                     Thread.sleep(2000);
