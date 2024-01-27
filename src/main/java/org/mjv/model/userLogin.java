@@ -41,6 +41,17 @@ public class userLogin {
         }
     }
 
+    public void updateUser(User user, String newPassword, int newAge, String newWork) {
+        if (usersList.contains(user)) {
+            user.setPassword(newPassword);
+            user.setAge(newAge);
+            user.setWork(newWork);
+            System.out.println("Dados do usuário atualizados com sucesso!");
+        } else {
+            System.out.println("Usuário não encontrado na lista.");
+        }
+    }
+
     private boolean searchUsername(String name) {
         if (usersList.stream().anyMatch(u -> name.equals(u.getName()))) {
             System.out.println("Usuário já existe");
