@@ -1,5 +1,4 @@
 package org.mjv;
-
 import org.mjv.service.Calc;
 
 public class Main {
@@ -8,6 +7,6 @@ public class Main {
         calcular.addition();
         calcular.multiplication();
         calcular.division();
-        calcular.subtraction();
+
     }
 }
